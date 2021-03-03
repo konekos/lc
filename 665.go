@@ -29,8 +29,53 @@ package main //给你一个长度为 n 的整数数组，请你判断在 最多 
 // Related Topics 数组
 // 👍 473 👎 0
 
+func main() {
+	var f bool
+	println(f)
+}
+
 //leetcode submit region begin(Prohibit modification and deletion)
 func checkPossibility(nums []int) bool {
+	var p int
+	if len(nums) < 3 {
+		return true
+	}
+	var f bool
+	for i := 0; i < len(nums)-1; i++ {
+		if nums[i+1] < nums[i] {
+			p = i
+			f = true
+		}
+	}
+
+	if !f {
+		return true
+	}
+
+	var tmp = nums[p]
+	var tmp1 = nums[p+1]
+
+	var b1 bool = true
+	var b2 bool = true
+
+	nums[p+1] = tmp
+
+	for i := 0; i < len(nums)-1; i++ {
+		if nums[i+1] < nums[i] {
+			b1 = false
+		}
+	}
+
+	nums[p] = tmp1
+	nums[p+1] = tmp1
+
+	for i := 0; i < len(nums)-1; i++ {
+		if nums[i+1] < nums[i] {
+			b2 = false
+		}
+	}
+
+	return b1 || b2
 
 }
 
