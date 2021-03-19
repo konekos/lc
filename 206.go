@@ -1,7 +1,5 @@
 package main
 
-import "go/ast"
-
 //反转一个单链表。
 //
 // 示例:
