@@ -58,7 +58,26 @@ package main
 // Related Topics 位运算
 // 👍 291 👎 0
 
+func main() {
+	for i := 0; i < 10; i++ {
+		println(hammingWeight(uint32(i)))
+	}
+
+}
+
 //leetcode submit region begin(Prohibit modification and deletion)
 func hammingWeight(num uint32) int {
+	if num == 0 {
+		return 0
+	}
+
+	count := 0
+
+	for num != 0 {
+		num &= num - 1
+		count++
+	}
+
+	return count
 
 }
