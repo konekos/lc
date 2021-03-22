@@ -2,7 +2,6 @@ package main
 
 import (
 	"strconv"
-	"strings"
 )
 
 //根据 逆波兰表示法，求表达式的值。
@@ -88,22 +87,25 @@ func evalRPN(tokens []string) int {
 		s := tokens[i]
 		switch s {
 		case "+":
-
+			nStack = append(nStack[:len(nStack)-2], nStack[len(nStack)-2]+nStack[len(nStack)-1])
 		case "-":
-
+			nStack = append(nStack[:len(nStack)-2], nStack[len(nStack)-2]-nStack[len(nStack)-1])
 		case "*":
-
+			nStack = append(nStack[:len(nStack)-2], nStack[len(nStack)-2]*nStack[len(nStack)-1])
 		case "/":
-
+			nStack = append(nStack[:len(nStack)-2], nStack[len(nStack)-2]/nStack[len(nStack)-1])
 		default:
 			num, _ := strconv.Atoi(s)
 			nStack = append(nStack, num)
 
 		}
 	}
+	return nStack[0]
 
 }
 
 func main() {
+	tokens := []string{"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"}
 
+	println(evalRPN(tokens))
 }
