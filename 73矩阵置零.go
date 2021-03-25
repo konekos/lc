@@ -39,8 +39,7 @@ package main
 // Related Topics 数组
 // 👍 442 👎 0
 
-
 //leetcode submit region begin(Prohibit modification and deletion)
-func setZeroes(matrix [][]int)  {
+func setZeroes(matrix [][]int) {
 
 }

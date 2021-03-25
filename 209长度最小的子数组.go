@@ -1,7 +1,5 @@
 package main
 
-
-
 //给定一个含有 n 个正整数的数组和一个正整数 s ，找出该数组中满足其和 ≥ s 的长度最小的 连续 子数组，并返回其长度。如果不存在符合条件的子数组，返回
 // 0。
 //
@@ -25,27 +23,27 @@ package main
 // 👍 542 👎 0
 
 func main() {
-	nums:=[]int{2,3,1,2,4,3}
+	nums := []int{2, 3, 1, 2, 4, 3}
 	println(minSubArrayLen(7, nums))
 }
 
 //leetcode submit region begin(Prohibit modification and deletion)
 func minSubArrayLen(s int, nums []int) int {
-	left:=0
-	flen:=0
-	length:=0
+	left := 0
+	flen := 0
+	length := 0
 	var sum int
 	for j := 0; j < len(nums); j++ {
 		sum += nums[j]
-		if sum>=s {
-			length = j+1
+		if sum >= s {
+			length = j + 1
 		}
 	}
 
-	for left<=len(nums) {
-		tmp:=0
+	for left <= len(nums) {
+		tmp := 0
 		for i := left; i < min(left+length, len(nums)); i++ {
-			tmp+=nums[i]
+			tmp += nums[i]
 		}
 		if tmp >= s {
 			flen = length
@@ -58,9 +56,10 @@ func minSubArrayLen(s int, nums []int) int {
 	return flen
 }
 func min(a int, b int) int {
-	if  a>b{
+	if a > b {
 		return b
 	}
 	return a
 }
+
 //leetcode submit region end(Prohibit modification and deletion)

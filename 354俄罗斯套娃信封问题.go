@@ -17,10 +17,9 @@ package main
 // Related Topics 二分查找 动态规划
 // 👍 380 👎 0
 
-
 //leetcode submit region begin(Prohibit modification and deletion)
 func maxEnvelopes(envelopes [][]int) int {
-	
-}
-//leetcode submit region end(Prohibit modification and deletion)
 
+}
+
+//leetcode submit region end(Prohibit modification and deletion)

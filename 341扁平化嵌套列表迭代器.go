@@ -23,7 +23,6 @@ import "go/types"
 // Related Topics 栈 设计
 // 👍 249 👎 0
 
-
 //leetcode submit region begin(Prohibit modification and deletion)
 /**
  * // This is the interface that allows for creating nested lists.
@@ -51,7 +50,6 @@ import "go/types"
  * func (this NestedInteger) GetList() []*NestedInteger {}
  */
 
-
 type NestedIterator struct {
 	vals []int
 }
@@ -59,11 +57,11 @@ type NestedIterator struct {
 func Constructor(nestedList []*NestedInteger) *NestedIterator {
 	arr := make([]int, 0)
 	var dfs func(nestedList []*NestedInteger)
-	dfs = func(nestedList []*NestedInteger)  {
+	dfs = func(nestedList []*NestedInteger) {
 		for _, nest := range nestedList {
 			if nest.IsInteger() {
 				arr = append(arr, nest.GetInteger())
-			}else {
+			} else {
 				dfs(nest.GetList())
 			}
 		}
@@ -83,5 +81,5 @@ func (this *NestedIterator) Next() int {
 func (this *NestedIterator) HasNext() bool {
 	return len(this.vals) > 0
 }
-//leetcode submit region end(Prohibit modification and deletion)
 
+//leetcode submit region end(Prohibit modification and deletion)

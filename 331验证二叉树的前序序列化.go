@@ -70,17 +70,16 @@ func isValidSerialization(preorder string) bool {
 		return false
 	}
 
-
 	ind := 0
 	outd := 2
 
 	for i := 1; i < len(arr); i++ {
 		node := arr[i]
 		if node == "#" {
-			ind ++
-		}else {
-			outd +=2
-			ind ++
+			ind++
+		} else {
+			outd += 2
+			ind++
 		}
 
 		if i != len(arr)-1 && ind >= outd {

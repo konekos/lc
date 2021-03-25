@@ -1,4 +1,5 @@
 package main
+
 //给定一个非负整数 num。对于 0 ≤ i ≤ num 范围中的每个数字 i ，计算其二进制数中的 1 的数目并将它们作为数组返回。
 //
 // 示例 1:
@@ -21,17 +22,16 @@ package main
 // Related Topics 位运算 动态规划
 // 👍 546 👎 0
 
-
 //leetcode submit region begin(Prohibit modification and deletion)
 func countBits(num int) []int {
 	if num == 0 {
 		return []int{0}
 	}
 	if num == 1 {
-		return []int{0,1}
+		return []int{0, 1}
 	}
 
-	arr := make([]int,0)
+	arr := make([]int, 0)
 	arr = append(arr, 0)
 	arr = append(arr, 1)
 	arr = append(arr, 1)
@@ -41,10 +41,10 @@ func countBits(num int) []int {
 	m[2] = 1
 
 	for i := 3; i <= num; i++ {
-		if i % 2==0 {
+		if i%2 == 0 {
 			m[i] = m[i/2]
 			arr = append(arr, m[i])
-		}else {
+		} else {
 			m[i] = m[i-1] + 1
 			arr = append(arr, m[i])
 		}
@@ -57,4 +57,5 @@ func countBits(num int) []int {
 func main() {
 
 }
+
 //leetcode submit region end(Prohibit modification and deletion)
