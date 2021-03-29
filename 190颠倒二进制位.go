@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 //颠倒给定的 32 位无符号整数的二进制位。
 //
 //
@@ -63,9 +65,8 @@ package main
 // 👍 307 👎 0
 
 func main() {
-	n1 := 1
-	n2 := 2
-	println(n1 & n2)
+	i := 3 & 1 << (31)
+	fmt.Println(i)
 }
 
 //leetcode submit region begin(Prohibit modification and deletion)
