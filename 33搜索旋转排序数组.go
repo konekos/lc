@@ -70,8 +70,8 @@ func search(nums []int, target int) int {
 			return mid
 		}
 
-		if nums[0] <= nums[mid] {
-			if nums[0] <= target && nums[mid] > target {
+		if nums[l] <= nums[mid] {
+			if nums[l] <= target && nums[mid] > target {
 				r = mid - 1
 			} else {
 				l = mid + 1
