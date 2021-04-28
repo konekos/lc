@@ -90,7 +90,7 @@ func numDecodings(nums string) int {
 }
 
 func main() {
-	println(numDecodings("12"))
+	println(numDecodings("202"))
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
