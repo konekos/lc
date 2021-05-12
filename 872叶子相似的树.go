@@ -1,8 +1,12 @@
 package main
 
+import "fmt"
+
 //请考虑一棵二叉树上所有的叶子，这些叶子的值按从左到右的顺序排列形成一个 叶值序列 。
 //
-//
+//  1
+// 2 3
+//45 67
 //
 // 举个例子，如上图所示，给定一棵叶值序列为 (6, 7, 4, 9, 8) 的树。
 //
@@ -66,14 +70,57 @@ package main
 //leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
+ *
  */
-func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
 
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+func main() {
+	arr := []int{}
+	addarr(arr)
+	fmt.Printf("%v", arr)
+}
+
+func addarr(arr []int) {
+	arr = append(arr, 1, 2, 3)
+
+}
+
+func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
+	arr := []int{}
+
+	var dfs func(root *TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		dfs(root.Left)
+		if root.Left == nil && root.Right == nil {
+			arr = append(arr, root.Val)
+		}
+		dfs(root.Right)
+	}
+	dfs(root1)
+
+	arr1 := append([]int{}, arr...)
+	arr = []int{}
+	dfs(root2)
+	fmt.Printf("%v", arr1)
+	fmt.Printf("%v", arr)
+
+	if len(arr1) != len(arr) {
+		return false
+	}
+	for i, num := range arr1 {
+		if num != arr[i] {
+			return false
+		}
+	}
+	return true
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
