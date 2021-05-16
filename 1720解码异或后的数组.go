@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 //未知 整数数组 arr 由 n 个非负整数组成。
 //
 // 经编码后变为长度为 n - 1 的另一个整数数组 encoded ，其中 encoded[i] = arr[i] XOR arr[i + 1] 。例如，a
@@ -41,12 +43,25 @@ package main
 // 👍 50 👎 0
 
 func main() {
-	println(2 ^ 1)
+	fmt.Printf("%v", decode([]int{6, 2, 7, 3}, 4))
 }
 
 //leetcode submit region begin(Prohibit modification and deletion)
 func decode(encoded []int, first int) []int {
+	res := make([]int, len(encoded)+1)
+	res[0] = first
+	for i := 1; i < len(encoded)+1; i++ {
+		num := encoded[i-1] ^ res[i-1]
+		res[i] = num
+	}
+	return res
+}
 
+func abs(a int) int {
+	if a > 0 {
+		return a
+	}
+	return -a
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
